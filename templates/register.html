@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Registration | KU</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="cyber-bg no-scroll">
+
+    <div class="neon-orb orb-1"></div>
+    <div class="neon-orb orb-2"></div>
+
+    <header class="cyber-header glass-panel center-header">
+        <div class="header-logo">// SECURE_UPLINK</div>
+        <div class="header-status">
+            ENCRYPTION: <span class="status-indicator">ACTIVE</span>
+            <span class="pulse-dot"></span>
+        </div>
+    </header>
+
+    <div class="split-layout">
+        <div class="split-left hero-image">
+            <div class="hero-overlay">
+                <h1 class="neon-text-gradient">KU_TECH_2026</h1>
+                <p class="hero-sub">KARNAVATI UNIVERSITY REGISTRATION PROTOCOL.</p>
+                
+                <div class="countdown-box glass-panel glow-pulse" style="margin-top: 3rem; padding: 1.5rem; background: rgba(0,0,0,0.6);">
+                    <h3 style="color: var(--neon-magenta); margin-top: 0; font-size: 1.2rem;">T-MINUS TO LAUNCH</h3>
+                    <div id="countdown" data-target="{{ target_date }}" style="font-size: 1.8rem; letter-spacing: 2px;">
+                        <span id="days">00</span>D : 
+                        <span id="hours">00</span>H : 
+                        <span id="mins">00</span>M : 
+                        <span id="secs">00</span>S
+                    </div>
+                </div>
+
+                <a href="/" class="cyber-link">← RETURN TO DIRECTORY</a>
+            </div>
+        </div>
+
+        <div class="split-right right-scroll perfectly-centered">
+            <div class="form-container glass-panel glow-pulse">
+                <h2 class="form-title" style="text-align: center;">// SECURE_REGISTRATION //</h2>
+                
+                <form id="registrationForm">
+                    <div class="floating-group">
+                        <input type="text" id="fullName" name="fullName" required>
+                        <label>OPERATIVE_NAME (Full Name)</label>
+                    </div>
+                    
+                    <div class="floating-group">
+                        <input type="text" id="collegeId" name="collegeId" required>
+                        <label>KU_CREDENTIAL (College ID)</label>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="floating-group select-group" style="flex: 1; margin-right: 10px;">
+                            <select id="semester" name="semester" required>
+                                <option value="" disabled selected>SELECT_SEMESTER</option>
+                                <option value="Semester 1">Semester 1</option>
+                                <option value="Semester 2">Semester 2</option>
+                                <option value="Semester 3">Semester 3</option>
+                                <option value="Semester 4">Semester 4</option>
+                                <option value="Semester 5">Semester 5</option>
+                                <option value="Semester 6">Semester 6</option>
+                                <option value="Semester 7">Semester 7</option>
+                                <option value="Semester 8">Semester 8</option>
+                            </select>
+                        </div>
+                        <div class="floating-group" style="flex: 1;">
+                            <input type="text" id="section" name="section" required>
+                            <label>SECTION</label>
+                        </div>
+                    </div>
+                    
+                    <div class="radio-section">
+                        <p class="section-label" style="text-align: center;">SELECT_PROTOCOL (Event):</p>
+                        
+                        <div class="radio-grid">
+                            <label class="radio-badge"><input type="radio" name="eventName" value="Cloud Computing Bootcamp" {% if selected_event == 'Cloud Computing Bootcamp' %}checked{% endif %} required><span>Cloud Bootcamp</span></label>
+                            <label class="radio-badge"><input type="radio" name="eventName" value="IT Infrastructure Summit" {% if selected_event == 'IT Infrastructure Summit' %}checked{% endif %}><span>IT Summit</span></label>
+                            <label class="radio-badge"><input type="radio" name="eventName" value="APC Network Workshop" {% if selected_event == 'APC Network Workshop' %}checked{% endif %}><span>Net Workshop</span></label>
+                            <label class="radio-badge"><input type="radio" name="eventName" value="Tech Fest 2026" {% if selected_event == 'Tech Fest 2026' %}checked{% endif %}><span>Tech Fest</span></label>
+                            <label class="radio-badge"><input type="radio" name="eventName" value="Cybersecurity CTF" {% if selected_event == 'Cybersecurity CTF' %}checked{% endif %}><span>Cyber CTF</span></label>
+                            <label class="radio-badge"><input type="radio" name="eventName" value="Data Structure Hackathon" {% if selected_event == 'Data Structure Hackathon' %}checked{% endif %}><span>DS Hackathon</span></label>
+                            <label class="radio-badge"><input type="radio" name="eventName" value="IoT Automation Lab" {% if selected_event == 'IoT Automation Lab' %}checked{% endif %}><span>IoT Lab</span></label>
+                            <label class="radio-badge"><input type="radio" name="eventName" value="Web3 & Decentralization" {% if selected_event == 'Web3 & Decentralization' %}checked{% endif %}><span>Web3 Expo</span></label>
+                            <label class="radio-badge"><input type="radio" name="eventName" value="AI & Robotics Expo" {% if selected_event == 'AI & Robotics Expo' %}checked{% endif %}><span>AI & Robotics</span></label>
+                            <label class="radio-badge"><input type="radio" name="eventName" value="AR/VR Game Jam" {% if selected_event == 'AR/VR Game Jam' %}checked{% endif %}><span>AR/VR Jam</span></label>
+                            <label class="radio-badge"><input type="radio" name="eventName" value="Quantum Computing Panel" {% if selected_event == 'Quantum Computing Panel' %}checked{% endif %}><span>Quantum Panel</span></label>
+                            <label class="radio-badge"><input type="radio" name="eventName" value="Cybernetics Symposium" {% if selected_event == 'Cybernetics Symposium' %}checked{% endif %}><span>Cybernetics</span></label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="cyber-btn action-glow">EXECUTE_REGISTRATION</button>
+                </form>
+                <div id="successMessage" class="hidden cyber-success"></div>
+            </div>
+
+            <footer class="cyber-footer form-footer">
+                <p>// KARNAVATI UNIVERSITY © 2026 //</p>
+            </footer>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
