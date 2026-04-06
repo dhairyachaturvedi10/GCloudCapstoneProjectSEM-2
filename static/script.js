@@ -60,6 +60,12 @@ if (form) {
             return;
         }
 
+        // Change the button text so the user knows it's loading
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerText;
+        submitBtn.innerText = "PROCESSING...";
+        submitBtn.disabled = true;
+
         fetch('/api/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -67,13 +73,30 @@ if (form) {
         })
         .then(response => response.json())
         .then(data => {
+            const msgDiv = document.getElementById('successMessage');
+            msgDiv.classList.remove('hidden');
+            
+            // Restore button
+            submitBtn.innerText = originalBtnText;
+            submitBtn.disabled = false;
+
             if (data.status === 'success') {
-                const msgDiv = document.getElementById('successMessage');
                 msgDiv.innerHTML = "✓ " + data.message;
-                msgDiv.classList.remove('hidden');
+                msgDiv.style.color = "var(--neon-green)";
+                msgDiv.style.borderColor = "var(--neon-green)";
                 form.reset(); 
+            } else {
+                // THIS SHOWS THE PYTHON ERRORS ON SCREEN
+                msgDiv.innerHTML = "⚠️ " + data.message;
+                msgDiv.style.color = "var(--neon-red)";
+                msgDiv.style.borderColor = "var(--neon-red)";
             }
         })
-        .catch((error) => console.error('Error:', error));
+        .catch((error) => {
+            console.error('Error:', error);
+            submitBtn.innerText = originalBtnText;
+            submitBtn.disabled = false;
+            alert("Critical system error. Check the browser console.");
+        });
     });
 }
