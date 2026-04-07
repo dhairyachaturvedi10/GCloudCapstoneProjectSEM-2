@@ -6,7 +6,7 @@ This is a modern, glassmorphic web application built as a Capstone Project to ha
 ## Local Architecture
 * **Frontend:** HTML5, CSS3 (Custom Glassmorphism UI), Vanilla JavaScript
 * **Backend:** Python (Flask Framework)
-* **Database:** SQLite (Local file-based database)
+* **Database:** PostgreSQL (Server-based database)
 
 ## Prerequisites
 Before running this application, ensure you have the following installed on your machine:
