@@ -13,6 +13,11 @@ Before running this application, ensure you have the following installed on your
 * [Python 3.x](https://www.python.org/downloads/)
 * Git
 
+##""NEW"" How to access Admin Panel
+* In the local URL: http://1XX.0.0.X:5000/
+* Add /admin at the end of the url: http://1XX.0.0.X:5000/admin
+* You Can now access the Admin Panel
+
 ## Installation & Setup Instructions
 
 **1. Clone the repository:**
