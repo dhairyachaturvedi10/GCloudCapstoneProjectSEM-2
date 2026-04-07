@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KU.SYS - Admin Panel</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        /* Admin-specific styling */
+        .admin-container { 
+            width: 95%; 
+            max-width: 1200px; 
+            margin: 50px auto; 
+            padding: 40px; 
+            display: block !important; 
+            text-align: left !important; 
+            align-items: flex-start !important;
+        
+         /* Glassmorphism Effect */
+            background: rgba(15, 15, 20, 0.7); 
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+        }
+        .admin-container h1 {
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+        }
+        .search-bar { 
+            width: 100%; 
+            padding: 15px; 
+            background: rgba(0,0,0,0.5); 
+            border: 1px solid var(--neon-cyan); 
+            color: white; 
+            margin-bottom: 20px; 
+            border-radius: 5px; 
+            font-family: monospace;
+            font-size: 16px;
+        }
+        .data-table { 
+            width: 100%; 
+            border-collapse: separate; 
+            border-spacing: 0;
+            margin-top: 10px;
+            table-layout: fixed; 
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            overflow: hidden; 
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .data-table th, .data-table td { 
+            padding: 15px; 
+            border-bottom: 1px solid rgba(255,255,255,0.1); 
+            text-align: left; /* Forces text to the left side of the column */
+            color: white; 
+            word-wrap: break-word; /* Prevents long emails from breaking the layout */
+        }
+        .data-table th { 
+            color: var(--neon-cyan); 
+            text-transform: uppercase; 
+        }
+        .delete-btn { 
+            background: transparent; 
+            border: 1px solid #ff3366; /* Neon Red */
+            color: #ff3366; 
+            padding: 5px 15px; 
+            cursor: pointer; 
+            transition: 0.3s; 
+        }
+        .delete-btn:hover { 
+            background: #ff3366; 
+            color: black; 
+            box-shadow: 0 0 10px #ff3366; 
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container glass-panel">
+        <h1 class="neon-text-gradient" style="margin-bottom: 20px;">SYSTEM ADMIN DASHBOARD</h1>
+        
+        <input type="text" id="searchInput" class="search-bar" placeholder="Search by Name, College ID, or Event...">
+        
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Full Name</th>
+                    <th>College ID</th>
+                    <th>Event Registered</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                </tbody>
+        </table>
+    </div>
+
+    <script src="/static/admin.js"></script>
+</body>
+</html>

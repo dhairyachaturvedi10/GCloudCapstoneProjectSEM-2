@@ -69,6 +69,54 @@ def api_register():
         print(f"Database Error: {e}")
         return jsonify({"status": "error", "message": "Database connection failed"}), 500
 
+# --- ADMIN PANEL ROUTES ---
+
+# 1. Serve the Admin HTML Page
+@app.route('/admin')
+def admin_page():
+    return render_template('admin.html')
+
+# 2. API to Fetch All Registrations
+@app.route('/api/registrations', methods=['GET'])
+def get_registrations():
+    try:
+        conn = get_db_connection()
+        cur = conn.cursor()
+        # Fetch everything, newest first
+        cur.execute("SELECT id, full_name, college_id, event_name FROM registrations ORDER BY id DESC")
+        rows = cur.fetchall()
+        
+        # Format the SQL data into a list of Python dictionaries
+        registration_list = []
+        for row in rows:
+            registration_list.append({
+                "id": row[0],
+                "fullName": row[1],
+                "collegeId": row[2],
+                "eventName": row[3]
+            })
+            
+        cur.close()
+        conn.close()
+        return jsonify(registration_list)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+# 3. API to Delete a Registration
+@app.route('/api/registrations/<int:reg_id>', methods=['DELETE'])
+def delete_registration(reg_id):
+    try:
+        conn = get_db_connection()
+        cur = conn.cursor()
+        # Delete the specific row using the ID passed in the URL
+        cur.execute("DELETE FROM registrations WHERE id = %s", (reg_id,))
+        conn.commit()
+        cur.close()
+        conn.close()
+        return jsonify({"status": "success"})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 # Start the Flask Server
 if __name__ == '__main__':
     app.run(debug=True)
