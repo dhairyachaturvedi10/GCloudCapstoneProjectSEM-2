@@ -53,10 +53,12 @@ CREATE TABLE registrations (
 );
 ```
 ---
-##📖 KU.SYS: Complete Setup & Usage Guide
+**📖 KU.SYS: Complete Setup & Usage Guide**
+
 Welcome to the Karnavati University Event Registration Terminal (KU.SYS). This guide provides step-by-step instructions for evaluators, administrators, and future developers to set up the environment, run the server, and navigate the platform.
 
-##PART 1: System Requirements & Setup
+**PART 1: System Requirements & Setup**
+
 This section is for whoever is running the code for the first time.
 
 1. Prerequisites
@@ -109,7 +111,8 @@ Bash
 python app.py
 You should see a message indicating the server is running on http://127.0.0.1:5000. Leave this terminal open.
 
-##PART 2: Using the Platform
+**PART 2: Using the Platform**
+
 This section explains how to navigate the two main interfaces of the application.
 
 🖥️ The Student Experience (Frontend)
@@ -136,7 +139,8 @@ Real-Time Search: Use the search bar at the top to type a student's Name, Colleg
 
 Record Deletion: If a student registers by mistake, click the neon-red DELETE button next to their name. A safety warning will appear. Confirming will permanently erase their record from the database and instantly refresh the table.
 
-##PART 3: Codebase Architecture Map
+**PART 3: Codebase Architecture Map**
+
 For grading evaluators reviewing the codebase structure.
 
 app.py: The core Flask server. Handles web routing, API endpoints, and direct communication with the PostgreSQL database.
