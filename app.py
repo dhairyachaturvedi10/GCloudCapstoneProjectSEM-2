@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 
 # Master Variable for the Global Countdown Timer
-FESTIVAL_DATE = "2026-04-10T23:59:00"
+FESTIVAL_DATE = "2026-04-30T23:59:00"
 
 # Database Connection Helper (PostgreSQL)
 def get_db_connection():
@@ -13,7 +13,7 @@ def get_db_connection():
         host="localhost",
         database="ku_events",
         user="postgres",
-        password="Dhiru9"  # Change this to your pgAdmin password
+        password="<Your Password Here>"  # Change this to your pgAdmin password
     )
     return conn
 
