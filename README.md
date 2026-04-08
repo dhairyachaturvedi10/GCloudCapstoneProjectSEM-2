@@ -53,15 +53,17 @@ CREATE TABLE registrations (
 );
 ```
 ---
-**📖 KU.SYS: Complete Setup & Usage Guide**
+#**📖 KU.SYS: Complete Setup & Usage Guide**
 
 Welcome to the Karnavati University Event Registration Terminal (KU.SYS). This guide provides step-by-step instructions for evaluators, administrators, and future developers to set up the environment, run the server, and navigate the platform.
+---
 
-**PART 1: System Requirements & Setup**
+#**PART 1: System Requirements & Setup**
 
 This section is for whoever is running the code for the first time.
 
-1. Prerequisites
+##1. Prerequisites
+
 Before running the application, ensure your machine has the following software installed:
 
 Python 3.8+ (Added to system PATH)
@@ -72,7 +74,8 @@ pgAdmin 4 (For database management)
 
 Git (Optional, for downloading the repository)
 
-2. Database Initialization
+##2. Database Initialization
+
 The application requires a PostgreSQL server to store student data securely.
 
 Open pgAdmin 4 and log in with your master password.
@@ -83,7 +86,7 @@ Name the database exactly: ku_events and save.
 
 Click on the new ku_events database, open the Query Tool (top menu), and execute the following SQL command to build the tables:
 
-SQL
+```sql
 CREATE TABLE registrations (
     id SERIAL PRIMARY KEY,
     full_name VARCHAR(100) NOT NULL,
@@ -93,7 +96,10 @@ CREATE TABLE registrations (
     event_name VARCHAR(100) NOT NULL,
     registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-3. Application Configuration
+```
+
+##3. Application Configuration
+
 Open the project folder in your code editor (e.g., VS Code).
 
 Open the terminal and install the required Python libraries:
@@ -102,20 +108,24 @@ Bash
 pip install -r requirements.txt
 Open app.py. Locate the get_db_connection() function near the top of the file.
 
-Important: Change the password="YOUR_ACTUAL_PASSWORD_HERE" to match the password you set when installing PostgreSQL.
+Important: Change the password="<Your Password Here>" to match the password you set when installing PostgreSQL.
 
-4. Launching the Server
+##4. Launching the Server
+
 In your terminal, start the Flask web server by running:
 
 Bash
 python app.py
 You should see a message indicating the server is running on http://127.0.0.1:5000. Leave this terminal open.
 
-**PART 2: Using the Platform**
+---
+
+#**PART 2: Using the Platform**
 
 This section explains how to navigate the two main interfaces of the application.
 
-🖥️ The Student Experience (Frontend)
+##🖥️ The Student Experience (Frontend)
+
 Access URL: http://localhost:5000
 
 Viewing Events: When students arrive at the homepage, they will see a live countdown to Tech Fest and a grid of available events.
@@ -128,7 +138,8 @@ The form features strict client-side validation (e.g., character limits on the S
 
 Upon successful submission, a secure background network request (Fetch API) saves the data, and a green success banner appears without refreshing the page.
 
-🔐 The Administrator Experience (Backend)
+##🔐 The Administrator Experience (Backend)
+
 Access URL: http://localhost:5000/admin
 
 This hidden dashboard is designed for university staff to manage the influx of event registrations.
@@ -138,8 +149,9 @@ The Data Table: The dashboard automatically pulls a live feed of all registered 
 Real-Time Search: Use the search bar at the top to type a student's Name, College ID, or Event Name. The table uses JavaScript to filter the results instantly, with zero server lag.
 
 Record Deletion: If a student registers by mistake, click the neon-red DELETE button next to their name. A safety warning will appear. Confirming will permanently erase their record from the database and instantly refresh the table.
+---
 
-**PART 3: Codebase Architecture Map**
+#**PART 3: Codebase Architecture Map**
 
 For grading evaluators reviewing the codebase structure.
 
